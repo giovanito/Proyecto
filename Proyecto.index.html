@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendador de Anime</title>
+    <style>
+        /* Estilos para que se vea moderno */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 1px solid #333;
+            width: 350px;
+        }
+        h2 { color: #ff4500; }
+        .boton-genero {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .boton-genero:hover {
+            background-color: #ff4500;
+        }
+        #resultado {
+            margin-top: 20px;
+            text-align: left;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            display: none;
+        }
+        .link-anime {
+            display: block;
+            color: #00aaff;
+            text-decoration: none;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        .link-anime:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Catálogo de Anime</h2>
+    <p>Elige un género para ver recomendaciones:</p>
+    
+    <button class="boton-genero" onclick="mostrarRecomendacion('Romance')">Romance</button>
+    <button class="boton-genero" onclick="mostrarRecomendacion('Isekai')">Isekai</button>
+
+    <div id="resultado">
+        <strong id="titulo-resultado"></strong>
+        <div id="lista-links"></div>
+    </div>
+</div>
+
+<script>
+    function mostrarRecomendacion(genero) {
+        const resultadoDiv = document.getElementById('resultado');
+        const titulo = document.getElementById('titulo-resultado');
+        const lista = document.getElementById('lista-links');
+
+        // Limpiamos la lista antes de mostrar nueva información
+        lista.innerHTML = "";
+        resultadoDiv.style.display = "block";
+        titulo.innerText = "Resultados para " + genero + ":";
+
+        // Aquí aplicamos tu lógica de SI / ENTONCES
+        if (genero === "Romance") {
+            lista.innerHTML += '<a class="link-anime" href="https://www.crunchyroll.com/es/series/GMTE00258377/the-quintessential-quintuplets-the-quintessential-quintuplets-movie" target="_blank">🔗 The Quintessential Quintuplets (Movie)</a>';
+            lista.innerHTML += '<a class="link-anime" href="https://www.crunchyroll.com/es/series/GT00366791/oshi-no-ko" target="_blank">🔗 Oshi No Ko</a>';
+        } 
+        else if (genero === "Isekai") {
+            lista.innerHTML += '<a class="link-anime" href="https://www.crunchyroll.com/es/series/GRGG9798R/rezero--starting-life-in-another-world-" target="_blank">🔗 Re:Zero - Starting Life in Another World</a>';
+            lista.innerHTML += '<a class="link-anime" href="https://www.netflix.com/ni/title/80052669" target="_blank">🔗 The Seven Deadly Sins (Netflix)</a>';
+        }
+    }
+</script>
+
+</body>
+</html>
